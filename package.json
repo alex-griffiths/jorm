@@ -1,0 +1,26 @@
+{
+  "name": "jorm",
+  "version": "1.0.0",
+  "description": "A JavaScript implementation of object relational mapping",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitub.com/Xadren/jorm.git"
+  },
+  "keywords": [
+    "js",
+    "mysql",
+    "active",
+    "record",
+    "database",
+    "orm"
+  ],
+  "author": "Alex Griffiths",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
