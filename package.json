@@ -19,7 +19,7 @@
     "orm"
   ],
   "author": "Alex Griffiths",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "mysql": "^2.16.0"
   }
