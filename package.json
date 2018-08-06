@@ -1,10 +1,13 @@
 {
   "name": "jorm",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A JavaScript implementation of object relational mapping",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
+  },
+  "egines": {
+    "node": ">=10.6.0"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,9 @@
   "license": "MIT",
   "dependencies": {
     "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
