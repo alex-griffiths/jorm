@@ -1,11 +1,19 @@
-'use strict';
+const Model = require('./lib/model');
 
-/**
- * Adds commas to a number
- * @param {number} number
- * @param {string} locale
- * @return {string}
- */
-module.exports = function(number, locale) {
-    return number.toLocaleString(locale);
-};
+class Test extends Model{
+    constructor(){
+        super();
+    }
+}
+
+const person = new Test;
+
+person.findAll();
+
+person.first();
+
+person.last();
+
+person.find({
+    name: "Alex"
+})

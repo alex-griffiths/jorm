@@ -4,6 +4,7 @@
   "description": "A JavaScript implementation of object relational mapping",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "mocha --reporter spec"
   },
   "egines": {
