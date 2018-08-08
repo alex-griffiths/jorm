@@ -8,12 +8,31 @@ class Test extends Model{
 
 const person = new Test;
 
-person.findAll();
+person.findAll().then(results => {
+    console.log(results);
+}).catch(err => {
+    throw err;
+});
 
-person.first();
+// person.first().then(result => {
+//     console.log(result);
+// }).catch(err => {
+//     throw err;
+// })
 
-person.last();
+// person.last().then(result => {
+//     console.log(result);
+// }).catch(err => {
+//     throw err;
+// })
 
-person.find({
-    name: "Alex"
-})
+// person.find({
+//     name: "Tim",
+//     name: "Alex"
+// }).then(result => {
+//     console.log(result);
+// }).catch(err => {
+//     throw err;
+// })
+
+person.connection.close();
