@@ -1,38 +1,60 @@
-const Model = require('./lib/model');
+const express = require('express');
+const bodyParser = require('body-parser');
+const Person = require('./models/Person');
 
-class Test extends Model{
-    constructor(){
-        super();
-    }
-}
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
 
-const person = new Test;
+app.get('/people', (req, res) => {
+    const people = new Person();
+    people.findAll().then(people => {
+        res.send({
+            status: 200,
+            message: 'OK',
+            people
+        });
+    }).catch(err => {
+        if(err){
+            throw err;
+        }
+    })
+    people.connection.close();
+})
 
-person.findAll().then(results => {
-    console.log(results);
-}).catch(err => {
-    throw err;
-});
+app.get('/person/:name', (req, res) => {
+    const person = new Person();
+    const req_person = req.params.name;
+    person.find({
+        name: req_person
+    }).then(person => {
+        res.send({
+            status: 200,
+            message: "OK",
+            person
+        })
+    });
+    people.connection.close();
+})
 
-// person.first().then(result => {
-//     console.log(result);
-// }).catch(err => {
-//     throw err;
-// })
+app.post('/person', (req, res) => {
+    const person = new Person();
+    const name = req.body.name;
 
-// person.last().then(result => {
-//     console.log(result);
-// }).catch(err => {
-//     throw err;
-// })
+    person.create({
+        name: name
+    }).then(response => {
+        res.send({
+            status: 200,
+            message: "OK",
+            response
+        })
+    }).catch(err => {
+        throw err;
+    });
+    people.connection.close();
+})
 
-// person.find({
-//     name: "Tim",
-//     name: "Alex"
-// }).then(result => {
-//     console.log(result);
-// }).catch(err => {
-//     throw err;
-// })
-
-person.connection.close();
+app.listen(3000, () => {
+    console.log("Spells app listening on port 3000");
+})
